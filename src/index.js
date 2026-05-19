@@ -7,7 +7,7 @@ const opportunityRoutes = require('./routes/opportunities');
 const applicationRoutes = require('./routes/applications');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
