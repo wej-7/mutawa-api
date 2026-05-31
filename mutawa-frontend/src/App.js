@@ -52,7 +52,7 @@ export default function App() {
   const [applied, setApplied] = useState([]);
 
   React.useEffect(() => {
-    fetch('http://localhost:5000/api/opportunities')
+    fetch('https://mutawa-api.onrender.com/api/opportunities')
       .then(res => res.json())
       .then(data => setOpportunities(data));
   }, []);
@@ -60,7 +60,7 @@ export default function App() {
   const applyToOpportunity = async (id) => {
     if (!user) { setShowLogin(true); return; }
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:5000/api/applications', {
+    const res = await fetch('https://mutawa-api.onrender.com/api/applications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ opportunity_id: id })
