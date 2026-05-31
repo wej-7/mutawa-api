@@ -28,7 +28,7 @@ const authLimiter = rateLimit({
   message: { error: 'محاولات كثيرة، حاول بعد 15 دقيقة' }
 });
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '10kb' })); // ✅ منع الطلبات الكبيرة جداً
 
 app.get('/', (req, res) => {
