@@ -12,7 +12,7 @@ const app = express();
 
 // ✅ الحماية من الهجمات
 app.use(helmet());
-
+app.set('trust proxy', 1);
 // ✅ منع الطلبات المتكررة (Rate Limiting)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 دقيقة
